@@ -16,6 +16,7 @@ html {
 body { /*will be changed to background image once i have it*/
     background: url(../img/body-background.jpg) no-repeat;
     background-size: 100%;
+    height: auto;
 }
 
 ul {
@@ -61,49 +62,106 @@ header .layout-wrap {
     height: 100%;
 }
 
-/*header form {*/
-    /*float: right;*/
-/*}*/
 
 /*---------------------*/
 /*main section styling*/
 /*---------------------*/
 
-.page-body {
+.content-background-wrapper {
+    overflow: auto;
     background: rgba(128, 128, 128, 0.75);
-    text-align: center;
+    max-width: 980px;
+    min-width: 650px;
+    margin: 0 auto;
+    height: auto;
 }
 
-/*menu boxes styling*/
+.page-body {
+    text-align: center;
+
+}
+
+/*notifications line*/
+
+.notifications {
+    width: 100%;
+    height: 35px;
+    background: #fff;
+    margin-top: 20px;
+}
+
+
+/*nav menu boxes styling*/
+nav {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 18px;
+}
 
 .nav-section {
     width: 30%;
     display: inline-block;
-    color: white;
-    background: black;
     padding: 0.3%;
-    margin: 1.3%;
+}
+
+.nav-section>p {
+    height: 123px;
+    padding-top: 10px;
+    color: white;
+    font-weight: 100;
+    margin: 0;
 }
 
 .menu {
     background: #EBE9EB;
+    height:36px;
     color: black;
     width: 100%;
-    padding: 0.3%;
+    padding-left: 15px;
+    display: flex;
+    font-size: 0.75rem;
 }
 
 .action-list {
     display: none;
 }
 
+/*adding background logs to nav-sections*/
+
+.nav-section:nth-of-type(1) > p {
+    background: url(../img/icons/action-report-new.png) no-repeat, black;
+    background-position: 50% -150%;
+}
+
+.nav-section:nth-of-type(2) > p {
+    background: url(../img/icons/action-report-top.png) no-repeat, black;
+    background-position: 50% -150%;
+}
+
+.nav-section:nth-of-type(3) > p {
+    background: url(../img/icons/actions-help.png) no-repeat, black;
+    background-position: 50% 1100%;
+}
+
+
 /*tabs styling*/
 
 .tabs li {
     display: inline-block;
     width: 22%;
-    margin: 1.1%;
+    margin: 0;
+    /*margin: 1.1%;*/
 
     margin-top: 2%;
     padding: 0.5%;
     background: #656264;
+}
+.tabs a {
+    font-weight: 100;
+    font-size: 01rem;
+    color: white;
+    display: block;
+    padding: 10px;
 }
