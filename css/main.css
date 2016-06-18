@@ -14,7 +14,8 @@ html {
 }
 
 body { /*will be changed to background image once i have it*/
-    background: #7A694B;
+    background: url(../img/body-background.jpg) no-repeat;
+    background-size: 100%;
 }
 
 ul {
