@@ -51,13 +51,19 @@ a {
 
 header {
     background: black;
-    height: 50px;
-    position: relative;
+    height: 72px;
 }
 
-header form {
-    float: right;
+header .layout-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
+
+/*header form {*/
+    /*float: right;*/
+/*}*/
 
 /*---------------------*/
 /*main section styling*/
