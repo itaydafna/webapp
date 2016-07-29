@@ -1,6 +1,6 @@
 /*-------------------*/
-/*general styling*/
-/*-------------------*/
+    /*general styling*/
+    /*-------------------*/
 
 html {
     -moz-box-sizing: border-box;
@@ -46,21 +46,6 @@ a {
     margin: 0 auto;
 }
 
-/*---------------*/
-/*header styling*/
-/*---------------*/
-
-header {
-    background: black;
-    height: 72px;
-}
-
-header .layout-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
 
 
 /*---------------------*/
@@ -88,80 +73,4 @@ header .layout-wrap {
     height: 35px;
     background: #fff;
     margin-top: 20px;
-}
-
-
-/*nav menu boxes styling*/
-nav {
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: space-between;
-    margin-top: 18px;
-}
-
-.nav-section {
-    width: 30%;
-    display: inline-block;
-    padding: 0.3%;
-}
-
-.nav-section>p {
-    height: 123px;
-    padding-top: 10px;
-    color: white;
-    font-weight: 100;
-    margin: 0;
-}
-
-.menu {
-    background: #EBE9EB;
-    height:36px;
-    color: black;
-    width: 100%;
-    padding-left: 15px;
-    display: flex;
-    font-size: 0.75rem;
-}
-
-.action-list {
-    display: none;
-}
-
-/*adding background logs to nav-sections*/
-
-.nav-section:nth-of-type(1) > p {
-    background: url(../img/icons/action-report-new.png) no-repeat, black;
-    background-position: 50% -150%;
-}
-
-.nav-section:nth-of-type(2) > p {
-    background: url(../img/icons/action-report-top.png) no-repeat, black;
-    background-position: 50% -150%;
-}
-
-.nav-section:nth-of-type(3) > p {
-    background: url(../img/icons/actions-help.png) no-repeat, black;
-    background-position: 50% 1100%;
-}
-
-
-/*tabs styling*/
-
-.tabs li {
-    display: inline-block;
-    width: 22%;
-    margin: 0;
-    /*margin: 1.1%;*/
-
-    margin-top: 2%;
-    padding: 0.5%;
-    background: #656264;
-}
-.tabs a {
-    font-weight: 100;
-    font-size: 01rem;
-    color: white;
-    display: block;
-    padding: 10px;
 }

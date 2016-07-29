@@ -1,0 +1,54 @@
+
+/*nav menu boxes styling*/
+nav {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.nav-section {
+    width: 30%;
+    display: inline-block;
+    padding: 0.3%;
+}
+
+.nav-section>p {
+    height: 123px;
+    padding-top: 10px;
+    color: white;
+    font-weight: 100;
+    margin: 0;
+}
+
+.menu {
+    background: #EBE9EB;
+    height:36px;
+    color: black;
+    width: 100%;
+    padding-left: 15px;
+    display: flex;
+    font-size: 0.75rem;
+}
+
+.action-list {
+    display: none;
+}
+
+/*adding background logs to nav-sections*/
+
+.nav-section:nth-of-type(1) > p {
+    background: url(../img/icons/action-report-new.png) no-repeat, black;
+    background-position: 50% -150%;
+}
+
+.nav-section:nth-of-type(2) > p {
+    background: url(../img/icons/action-report-top.png) no-repeat, black;
+    background-position: 50% -150%;
+}
+
+.nav-section:nth-of-type(3) > p {
+    background: url(../img/icons/actions-help.png) no-repeat, black;
+    background-position: 50% 1100%;
+}

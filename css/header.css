@@ -1,0 +1,15 @@
+/*---------------*/
+/*header styling*/
+/*---------------*/
+
+header {
+    background: black;
+    height: 72px;
+}
+
+header .layout-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
