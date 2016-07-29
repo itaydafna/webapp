@@ -1,5 +1,6 @@
-
+/*-----------------------*/
 /*nav menu boxes styling*/
+/*----------------------*/
 nav {
     display: flex;
     width: 100%;
@@ -12,6 +13,7 @@ nav {
     width: 30%;
     display: inline-block;
     padding: 0.3%;
+    position: relative;
 }
 
 .nav-section>p {
@@ -32,11 +34,22 @@ nav {
     font-size: 0.75rem;
 }
 
+/*will be diplayed on hover state*/
 .action-list {
-    display: none;
+    background: #EBE9EB;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+
 }
 
+/*---------------------------------------*/
 /*adding background logs to nav-sections*/
+/*--------------------------------------*/
 
 .nav-section:nth-of-type(1) > p {
     background: url(../img/icons/action-report-new.png) no-repeat, black;
@@ -51,4 +64,13 @@ nav {
 .nav-section:nth-of-type(3) > p {
     background: url(../img/icons/actions-help.png) no-repeat, black;
     background-position: 50% 1100%;
+}
+
+/*--------------------------------------------*/
+/*setting the drop-down menus on hover state*/
+/*------------------------------------------*/
+
+.nav-section:hover .action-list {
+    max-height: 200px;
+
 }
