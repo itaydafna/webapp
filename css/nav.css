@@ -81,7 +81,7 @@ nav {
 }
 
 .arrow {
-    
+    font-size: 1.2rem;
 }
 
 /*--------------------------------------------*/
@@ -91,4 +91,16 @@ nav {
 .nav-section:hover .action-list {
     max-height: 200px;
 
+}
+
+
+/*arrow spin on dropdown menu*/
+
+.nav-section:hover .arrow {
+    transform: rotate(180deg);
+
+}
+
+.arrow {
+    transition: all 0.5s;
 }
