@@ -12,8 +12,12 @@ nav {
 .nav-section {
     width: 30%;
     display: inline-block;
-    padding: 0.3%;
     position: relative;
+}
+
+.nav-section,
+.action-list {
+    box-shadow: #656264 3px 3px 5px;
 }
 
 .nav-section>p {
@@ -25,7 +29,7 @@ nav {
 }
 
 .menu {
-    background: #EBE9EB;
+    background: #ecebec;
     /*height:36px;*/
     color: black;
     width: 100%;
@@ -67,17 +71,32 @@ nav {
 
 
 /*--------------------*/
-/*styling menu-hints*/
+/*styling dropdown menus*/
 /*-------------------*/
 
+.action-list,
 .menu-hint {
+padding: 0 20px;
+}
+
+.menu-hint,
+.action-list li {
     width: 100%;
     height: 30px;
     display: flex;
-    padding: 0 20px;
     justify-content: space-between;
     align-items: center;
 
+
+}
+
+.action-list li:not(last-child){
+    border-bottom: 1px solid #ecebec;
+
+}
+
+.action-list {
+    background: #fffdff;
 }
 
 .arrow {

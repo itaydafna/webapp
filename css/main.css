@@ -44,6 +44,7 @@ a {
     max-width: 960px;
     min-width: 640px;
     margin: 0 auto;
+    height: auto;
 }
 
 
@@ -59,6 +60,7 @@ a {
     min-width: 650px;
     margin: 0 auto;
     height: auto;
+    overflow: visible;
 }
 
 .page-body {
