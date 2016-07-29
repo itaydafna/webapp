@@ -7,6 +7,12 @@
     height: 700px;
 }
 
+.content-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 /*inactive content-div display: none*/
 
 .content-div[data-active="inactive"] {
