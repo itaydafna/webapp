@@ -28,19 +28,3 @@
     color: black;
 }
 
-/*general active div styling*/
-
-.content-div[data-active="active"] {
-    background: #ebe9eb;
-    width: 100%;
-    height: 700px;
-}
-
-/*general inactive div display: none*/
-
-.content-div[data-active="inactive"] {
-    background: #ebe9eb;
-    width: 100%;
-    height: 700px;
-    display: none;
-}

@@ -59,9 +59,8 @@ a {
     max-width: 980px;
     min-width: 650px;
     margin: 0 auto;
-    /*change height to auto as soon as done editing*/
-    height: 750px;
-    /*overflow: visible;*/
+    height: auto;
+
 }
 
 .page-body {
@@ -77,3 +76,4 @@ a {
     background: #fff;
     margin-top: 20px;
 }
+
