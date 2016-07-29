@@ -1,11 +1,14 @@
 /*tabs styling*/
+.tabs ul {
+    display: flex;
+    justify-content: space-between;
+}
 
 .tabs li {
     display: inline-block;
     width: 22%;
     margin: 0;
-    /*margin: 1.1%;*/
-
+    color: white;
     margin-top: 2%;
     padding: 0.5%;
     background: #656264;
@@ -13,7 +16,14 @@
 .tabs a {
     font-weight: 100;
     font-size: 01rem;
-    color: white;
+
     display: block;
     padding: 10px;
+}
+
+/*styling chosen tab class*/
+
+.tabs .active-tab {
+    background: #ebe9eb;
+    color: black;
 }
