@@ -86,8 +86,6 @@ padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
 }
 
 .action-list li:not(last-child){
@@ -97,10 +95,22 @@ padding: 0 20px;
 
 .action-list {
     background: #fffdff;
+    cursor: pointer;
 }
 
 .arrow {
     font-size: 1.2rem;
+}
+
+/*stylink the a links to take */
+.action-list a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+    align-items: center;
+
 }
 
 /*--------------------------------------------*/
