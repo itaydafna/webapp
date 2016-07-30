@@ -1,11 +1,14 @@
+/*styling and positioning "links-manager" form*/
+
 .links-manager {
-    width: 96%;
+    width: 100%;
     height: 230px;
     background: #fffdff;
     padding: 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: #656264 3px 3px 5px;
 
 }
 
@@ -31,4 +34,17 @@
     color: white;
     background: black;
 
+}
+
+/*hide "open on new tab" icon on page load*/
+
+.custom .new-tab {
+    display: none;
+    padding: 3px;
+}
+
+.custom .setting {
+    background: #fffdff;
+    padding: 3px;
+    box-shadow: #656264 3px 3px 5px;
 }

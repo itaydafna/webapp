@@ -8,12 +8,15 @@
 }
 
 /*positioning inside the content-div*/
-
 .content-div {
     display: flex;
+    justify-content: center;
+}
+
+.content-div-wrapper {
+    width: 96%;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 /*inactive content-div display: none*/
@@ -40,10 +43,11 @@ iframe {
     width: 100%;
     height: 50px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row-reverse;
 }
 
 .settings-icons {
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
