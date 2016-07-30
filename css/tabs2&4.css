@@ -1,4 +1,4 @@
-/*styling and positioning "links-manager" form*/
+/*styling and positioning "custom-links" form*/
 
 .custom-links {
     width: 100%;
@@ -14,6 +14,7 @@
     box-sizing: border-box;
 }
 
+/*custom-links form disappearing on toggle "inactive" state */
 .custom-links[data-active="inactive"] {
     height: 0;
     padding: 0 2%;
@@ -51,7 +52,11 @@
 }
 
 .custom .settings {
-    background: #fffdff;
     padding: 3px;
-    box-shadow: #656264 3px 3px 5px;
+    transition: background 0.2s;
+
+}
+
+.custom .settings[data-active = "active"]{
+    background: #fffdff;
 }
