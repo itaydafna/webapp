@@ -22,9 +22,18 @@
                     submitedFormEl(formChild.parentNode);
                 }
             }(formBtn),
-
+        //empty object to collect keys (name values) and values from the form fields
+            formDataObj = {};
+        //took this method from here (https://developer.mozilla.org/en-US/docs/Web/API/FormData/entries);
             customLinksFormData = new FormData(customLinksForm);
-            console.dir(customLinksFormData.getAll("name"))
+        for(var pair of customLinksFormData.entries()) {
+            formDataObj[pair[0]] = pair[1];
+        }
+
+        //a loop updating local storage with the form object data.
+        for (var key in formDataObj){
+            localStorage.setItem(key,formDataObj[key]);
+        }
     }
 
 
