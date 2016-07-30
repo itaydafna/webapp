@@ -1,5 +1,6 @@
+//---------------------------------------------------------------------------------
 //this script controls the "custom links" toggle while the settings icon is clicked
-
+//---------------------------------------------------------------------------------
 (function(){
 //creating a node list out of all the "settings" icons
     var settingsList = document.querySelectorAll(".settings");
