@@ -41,8 +41,8 @@
 // adding click event listeners to all form buttons for "getFormData
 
     customLinksArray.forEach(function(form){
-        form.querySelector("button").addEventListener("click", function (e) {
-            e.preventDefault();
+        form.querySelector("button").addEventListener("click", function () {
+            // e.preventDefault();
                 getFormData.call(this);
         });
     })
