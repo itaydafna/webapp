@@ -12,6 +12,10 @@
     transition: height 0.2s;
     overflow: auto;
     box-sizing: border-box;
+    position: absolute;
+    top:100%;
+    left: 0;
+
 }
 
 /*custom-links form disappearing on toggle "inactive" state */

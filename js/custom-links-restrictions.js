@@ -50,7 +50,11 @@
 
     (function () {
     formButtonsArray.forEach(function(btn){
-        btn.addEventListener("click",validateRequired)
+        btn.addEventListener("click", function () {
+            validateRequired();
+            
+        })
+
     })}())
 
 

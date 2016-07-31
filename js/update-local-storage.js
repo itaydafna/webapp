@@ -46,6 +46,7 @@
         form.querySelector("button").addEventListener("click", function () {
             // e.preventDefault();
                 getFormData.call(this);
+           
         });
     })
 

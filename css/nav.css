@@ -13,6 +13,8 @@ nav {
     width: 30%;
     display: inline-block;
     position: relative;
+    /*added z index so drop-down menus will stay on top of relative elements in bottom sections*/
+    z-index: 100;
 }
 
 .nav-section,

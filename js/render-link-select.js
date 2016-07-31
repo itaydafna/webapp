@@ -76,11 +76,12 @@
         btnTwo = document.body.querySelector(".second button");
 
         btnOne.addEventListener("click",function(){
-            renderSelectInput(customOneArray)
+            renderSelectInput(customOneArray);
         });
 
         btnTwo.addEventListener("click",function(){
             renderSelectInput(customTwoArray)
+
         });
 
     //adding "on-load" event listeners to each form to render the "select" input to both tabs
