@@ -1,5 +1,5 @@
 
-//this script takes care of retrieving data form the forms (upon submission) and updating the
+//this script takes care of retrieving data form the forms (upon submission) and updating
 //local storage accordingly
 
 (function(){
@@ -32,7 +32,9 @@
 
         //a loop updating local storage with the form object data.
         for (var key in formDataObj){
-            localStorage.setItem(key,formDataObj[key]);
+            if(formDataObj[key]!==""){
+                localStorage.setItem(key, formDataObj[key]);
+            }
         }
     }
 

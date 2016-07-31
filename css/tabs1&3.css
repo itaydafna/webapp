@@ -60,3 +60,12 @@
 .custom .settings[data-active = "active"]{
     background: #fffdff;
 }
+
+/*styling and positioning the site select input (once rendered)*/
+
+.select-site {
+    position: relative;
+    bottom: 5px;
+    outline: none;
+    width: 100px;
+}
