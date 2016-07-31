@@ -9,7 +9,7 @@
         customOneArray = [],
         customTwoArray = [];
     for (var i = 1; i<=6; i++){
-        if (siteStorage["name"+i]!==""){
+        if (siteStorage["name"+i]!=="" && siteStorage["name"+i]!==undefined){
             var pair = [];
             pair.push(siteStorage["name"+i]);
             pair.push(siteStorage["url"+i]);
@@ -41,7 +41,7 @@
 
     //!just for testing - should be changed later
 
-    document.body.querySelector(".first .section-header").appendChild(createSelect(customOneArray));
+    // document.body.querySelector(".first .section-header").appendChild(createSelect(customOneArray));
     document.body.querySelector(".second .section-header").appendChild(createSelect(customTwoArray));
 
 
