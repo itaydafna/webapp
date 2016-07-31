@@ -20,8 +20,7 @@
             }
         }
     }
-
-    console.log(customOneArray,customTwoArray);
+    
 
     //function which creates a "select" element out of a given "pairs" array of names and URLs
 
@@ -33,7 +32,7 @@
                 selectInnerHTML = "";
                 select.className = "select-site";
             array.forEach(function (pair) {
-                selectInnerHTML += "<option value=" + pair[0] + " data-url ="+pair[1]+">" + pair[0] + "</option>";
+                selectInnerHTML += "<option value=" + pair[1] + ">" + pair[0] + "</option>";
             })
             select.innerHTML = selectInnerHTML;
             return select;

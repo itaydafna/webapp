@@ -16,8 +16,7 @@
 //creating an array out of all the "custom-links" forms
 
     var customLinksArray = Array.prototype.slice.call(customLinksList);
-
-
+    
 
 // function which toggles the report's active state
 
@@ -41,9 +40,10 @@
         })
     }
 
-//adding click event listeners to setting icons
+
     
     (function(){
+        //adding click event listeners to setting icons
         settingsArray.forEach(function (settingsIcon) {
             settingsIcon.addEventListener("click",toggleCustomeLinks);
             

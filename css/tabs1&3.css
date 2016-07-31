@@ -48,12 +48,14 @@
 
 }
 
-/*hide "open on new tab" icon on page load*/
+
+
 
 .custom .new-tab {
-    display: none;
     padding: 3px;
 }
+
+
 
 .custom .settings {
     padding: 3px;
