@@ -3,14 +3,14 @@
 //------------------------------------------------------------------------------------------/
 (function () {
 
-    // creating a node-list of both "custom links" content-divs
-    var customLinksDivs = document.querySelectorAll(".custom"),
+    // creating a node-list of both "select-site" option inputs
+    var selectSiteInputs = document.querySelectorAll(".select-site"),
 
     // creating an array of all the tabs
-        customLinksDivsArr = Array.prototype.slice.call(customLinksDivs);
+        selectSiteInputsArr = Array.prototype.slice.call(selectSiteInputs);
 
 
-    //this function renders a "open on new tab" icon with the selected url
+    //this function renders an "open on new tab" icon with the selected url
     //once a site has been selected
 
     function addNewTab(div,url){
@@ -32,18 +32,34 @@
 
 
 
+    //ADD TO LIB!
+    //recursive function which checks if an element has a child with a given class name and if it doesn't travels
+    //it's parent node to check if it has this child - finds this class closest parent and returns the parent element
+
+    function closestParent(element, classString) {
+        if (element.querySelector(classString)) {
+            return element;
+
+        }
+        return closestParent(element.parentNode, classString);
+    }
 
 
-    //add "change" event listeners to both "custom links" tabs (tabs 1 & 3)
+
+
+
+    //add "change" event listeners to both "select-links" option inputs (on tabs 1 & 3)
 
     (function(){
-        customLinksDivsArr.forEach(function(div) {
-            div.addEventListener("change",
+        selectSiteInputsArr.forEach(function(selectLinks) {
+            selectLinks.addEventListener("change",
                 // function which listen to a "select" (change) event on the tab and then updates its
                 // iframe based on the selected value
                 function (event) {
+                    //finding closest <iframe> parent
+                    var closestIframeParent = closestParent(this,"iframe");
                     var url = event.target.value;
-                    this.querySelector("iframe").src = url;
+                    closestIframeParent.querySelector("iframe").src = url;
 
                     //call addNewTab with "this" as the div and url as the url
                     addNewTab(this,url);
