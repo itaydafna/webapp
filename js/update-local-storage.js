@@ -29,6 +29,7 @@
         for(var pair of customLinksFormData.entries()) {
             formDataObj[pair[0]] = pair[1];
         }
+        
 
         //a loop updating local storage with the form object data.
         for (var key in formDataObj){

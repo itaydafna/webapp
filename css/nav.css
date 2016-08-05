@@ -130,8 +130,11 @@ padding: 0 20px;
 .nav-section:hover .arrow {
     transform: rotate(180deg);
 
+
 }
 
 .arrow {
+
     transition: all 0.5s;
+    transform-origin: 50% 50%;
 }
