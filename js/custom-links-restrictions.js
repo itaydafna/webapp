@@ -10,6 +10,8 @@
 // creating an array of all the ".new-link" field couples
     newLinkArray = Array.prototype.slice.call(newLinkNodeList);
 
+
+
 //creating an array of couple fields - each couple is a sub-array in the main array
     var fieldCouplesArray = [];
         newLinkArray.forEach(function (newLink){
@@ -37,6 +39,18 @@
             }
         })
     }
+
+    //creating a list of the 2 "custom links" forms
+    var customLinks = document.querySelectorAll(".custom-links");
+
+    // adding prevent default to form submit so page wouldn't refresh
+
+    customLinks.forEach(function (form) {
+        form.addEventListener("submit",function(e){
+            e.preventDefault();
+        })
+    }
+    )
 
 
     // creating a node-list of all the "custom-links" form buttons

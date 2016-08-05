@@ -26,6 +26,36 @@
 
 
 
+// a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
+//restrictions)
+
+    function formValid(){
+
+        var submitButton  = this,
+        //finding the first parent of the clicked element which is a parent of the "custom-links" form
+        closestFormParent = closestParent(submitButton, ".custom-links"),
+
+        //getting a list of all the form input elements
+
+        formInputFields = closestFormParent.querySelectorAll("input"),
+
+
+        // creating an array out of all the "custom-links" form buttons
+
+        formInputFieldsArray = Array.prototype.slice.call(formInputFields);
+
+         var allFieldsValid = true;
+         for(var i = 0; i<formInputFieldsArray.length; i++) {
+             if (!formInputFieldsArray[i].validity.valid) {
+                 allFieldsValid = false;
+             }
+         }
+
+        return allFieldsValid;
+    }
+
+
+
 
 // function which toggles the report's active state
 
@@ -49,6 +79,7 @@
             customLinksForm.dataset.active = "active";
         }
     }
+
 
 
 
@@ -77,10 +108,13 @@
         })
 
         //adding "click" event listeners to all "custom-links" form buttons to call "toggleCustomLinks"
+        //!only if form is form is valid (hence the if condition);
 
         formButtonsArray.forEach(function (button) {
             button.addEventListener("click", function () {
-                toggleCustomLinks.call(this);
+                if(formValid.call(this)) {
+                    toggleCustomLinks.call(this);
+                }
             });
 
         })

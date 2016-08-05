@@ -8,19 +8,25 @@
         //creating 2 arrays of pairs of names and URLs for updating the "select" form  - one array for each tab
         customOneArray = [],
         customTwoArray = [];
-    for (var i = 1; i<=6; i++){
-        if (siteStorage["name"+i]!=="" && siteStorage["name"+i]!==undefined){
-            var pair = [];
-            pair.push(siteStorage["name"+i]);
-            pair.push(siteStorage["url"+i]);
-            if(i<4) {
-                customOneArray.push(pair);
-            } else
-            { customTwoArray.push(pair);
+        //this function should update the custom arrays on page load and on form submission
+
+    function updateStorageArrays () {
+        //clearing the custom array so they can be "refilled" with what is in the local storage
+            customOneArray = [];
+            customTwoArray = [];
+        for (var i = 1; i <= 6; i++) {
+            if (siteStorage["name" + i] !== "" && siteStorage["name" + i] !== undefined) {
+                var pair = [];
+                pair.push(siteStorage["name" + i]);
+                pair.push(siteStorage["url" + i]);
+                if (i < 4) {
+                    customOneArray.push(pair);
+                } else {
+                    customTwoArray.push(pair);
+                }
             }
         }
     }
-    
 
     //function which creates a "select" element out of a given "pairs" array of names and URLs
 
@@ -74,24 +80,27 @@
     var btnOne = document.body.querySelector(".first button"),
         btnTwo = document.body.querySelector(".second button");
 
+
+
         btnOne.addEventListener("click",function(){
+            //update the custom arrays based on what is on the local storage
+            updateStorageArrays();
             renderSelectInput(customOneArray);
         });
 
         btnTwo.addEventListener("click",function(){
+            //update the custom arrays based on what is on the local storage
+            updateStorageArrays();
             renderSelectInput(customTwoArray)
 
         });
 
     //adding "on-load" event listeners to each form to render the "select" input to both tabs
-        document.onload = renderSelectInput(customOneArray);
-        document.onload = renderSelectInput(customTwoArray);
 
-
-    //!just for testing - should be changed later
-
-    // document.body.querySelector(".first .section-header").appendChild(createSelect(customOneArray));
-    // document.body.querySelector(".second .section-header").appendChild(createSelect(customTwoArray));
+            //update the custom arrays based on what is on the local storage
+            updateStorageArrays();
+            renderSelectInput(customOneArray);
+            renderSelectInput(customTwoArray);
 
 
 }())
