@@ -37,11 +37,21 @@
                 localStorage.setItem(key, formDataObj[key]);
             }
         }
+
+        resetForm(customLinksForm);
     }
 
-    //ADD TO LIB!
-    //recursive function which checks if an element has a child with a given class name and if it doesn't travels
-    //it's parent node to check if it has this child - finds this class closest parent and returns the parent element
+ //a function which takes a form element as a parameter and deletes the text from all of its input fields
+    function resetForm(form){
+        var inputList = form.querySelectorAll("input");
+        inputList.forEach(function(input){
+            input.value = "";
+        })
+    }
+
+//ADD TO LIB!
+//recursive function which checks if an element has a child with a given class name and if it doesn't travels
+//it's parent node to check if it has this child - finds this class closest parent and returns the parent element
 
     function closestParent(element, classString) {
         if (element.querySelector(classString)) {
@@ -53,7 +63,7 @@
 
 
 //!!!REPEATED CODE - NEED TO MAKE GLOBAL
-// a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
+// a function which returns a boolean which checks if all the input fields in the form are valid (no "required or "url"
 //restrictions)
 
     function formValid(){
