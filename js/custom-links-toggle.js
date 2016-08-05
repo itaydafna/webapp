@@ -26,6 +26,9 @@
 
 
 
+//!!!REPEATED CODE - NEED TO MAKE GLOBAL
+// a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
+//restrictions)
 // a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
 //restrictions)
 
@@ -112,9 +115,15 @@
 
         formButtonsArray.forEach(function (button) {
             button.addEventListener("click", function () {
-                if(formValid.call(this)) {
-                    toggleCustomLinks.call(this);
-                }
+
+        //setting the timeout here is a trick I found which allows the form to update the validity status of all the
+        // input fields before it toggles the form
+                setTimeout(function(){
+                    if(formValid.call(this)) {
+                        toggleCustomLinks.call(this);
+                    }
+                }.bind(this),50)
+
             });
 
         })

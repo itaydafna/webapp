@@ -75,6 +75,54 @@
         }
     }
 
+
+//ADD TO LIB!
+//recursive function which checks if an element has a child with a given class name and if it doesn't travels
+//it's parent node to check if it has this child - finds this class closest parent and returns the parent element
+
+    function closestParent(element, classString) {
+        if (element.querySelector(classString)) {
+            return element;
+
+        }
+        return closestParent(element.parentNode, classString);
+    }
+
+
+
+//!!!REPEATED CODE - NEED TO MAKE GLOBAL
+// a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
+//restrictions)
+// a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
+//restrictions)
+
+    function formValid(){
+
+        var submitButton  = this,
+        //finding the first parent of the clicked element which is a parent of the "custom-links" form
+            closestFormParent = closestParent(submitButton, ".custom-links"),
+
+        //getting a list of all the form input elements
+
+            formInputFields = closestFormParent.querySelectorAll("input"),
+
+
+        // creating an array out of all the "custom-links" form buttons
+
+            formInputFieldsArray = Array.prototype.slice.call(formInputFields);
+
+        var allFieldsValid = true;
+        for(var i = 0; i<formInputFieldsArray.length; i++) {
+            if (!formInputFieldsArray[i].validity.valid) {
+                allFieldsValid = false;
+            }
+        }
+
+        return allFieldsValid;
+    }
+
+
+
     //adding "click" event listeners to each form  button to render the "select" input
 
     var btnOne = document.body.querySelector(".first button"),
@@ -83,16 +131,25 @@
 
 
         btnOne.addEventListener("click",function(){
-            //update the custom arrays based on what is on the local storage
-            updateStorageArrays();
-            renderSelectInput(customOneArray);
+            //setting the timeout here is a trick I found which allows the form to update the validity status of all the
+            // input fields before it toggles the form
+            setTimeout(function () {
+                if(formValid.call(this)) {
+                    //update the custom arrays based on what is on the local storage
+                    updateStorageArrays();
+                    renderSelectInput(customOneArray);
+                }}.bind(this),50)
         });
 
         btnTwo.addEventListener("click",function(){
-            //update the custom arrays based on what is on the local storage
-            updateStorageArrays();
-            renderSelectInput(customTwoArray)
-
+            //setting the timeout here is a trick I found which allows the form to update the validity status of all the
+            // input fields before it toggles the form
+            setTimeout(function () {
+                if(formValid.call(this)) {
+                    //update the custom arrays based on what is on the local storage
+                    updateStorageArrays();
+                    renderSelectInput(customTwoArray);
+                }}.bind(this),50)
         });
 
     //adding "on-load" event listeners to each form to render the "select" input to both tabs
