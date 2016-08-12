@@ -30,7 +30,10 @@ var _DOM_ElEMENTS = {
         tabsArray : myUTILS.returnElementsArray(".tabs li"),
 
         //an array of all the main content divs
-        contentDivsArray : myUTILS.returnElementsArray(".content-div")
+        contentDivsArray : myUTILS.returnElementsArray(".content-div"),
+
+        //an array of all the "select-site" option inputs
+        selectSiteInputsArray :  myUTILS.returnElementsArray(".select-site")
 
     }
 }

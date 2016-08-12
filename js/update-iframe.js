@@ -3,13 +3,6 @@
 //------------------------------------------------------------------------------------------/
 (function () {
 
-    // creating a node-list of both "select-site" option inputs
-    var selectSiteInputs = document.querySelectorAll(".select-site"),
-
-    // creating an array of all the tabs
-        selectSiteInputsArr = Array.prototype.slice.call(selectSiteInputs);
-
-
     //this function renders an "open on new tab" icon with the selected url
     //once a site has been selected
 
@@ -30,40 +23,22 @@
     }
 
 
-
-
-    //ADD TO LIB!
-    //recursive function which checks if an element has a child with a given class name and if it doesn't travels
-    //it's parent node to check if it has this child - finds this class closest parent and returns the parent element
-
-    function closestParent(element, classString) {
-        if (element.querySelector(classString)) {
-            return element;
-
-        }
-        return closestParent(element.parentNode, classString);
-    }
-
-
-
-
-
     //add "change" event listeners to both "select-links" option inputs (on tabs 1 & 3)
 
     (function(){
-        selectSiteInputsArr.forEach(function(selectLinks) {
+        _DOM_ElEMENTS.elementArrays.selectSiteInputsArray.forEach(function(selectLinks) {
             selectLinks.addEventListener("change",
                 // function which listens to a "select" (change) event on the tab and then updates its
                 // iframe based on the selected value
                 function (event) {
                     //finding closest <iframe> parent
-                    var closestIframeParent = closestParent(this,"iframe");
+                    var closestIframeParent = myUTILS.closestParent(this,"iframe");
                     var url = event.target.value;
 
                     closestIframeParent.querySelector("iframe").src = url;
 
                     //finding closest ".settings-icons" parent
-                    var closestIframeParent = closestParent(this,".settings-icons");
+                    var closestIframeParent = myUTILS.closestParent(this,".settings-icons");
 
                     //call addNewTab with "this" as the div and url as the url
                     addNewTab(closestIframeParent,url);
