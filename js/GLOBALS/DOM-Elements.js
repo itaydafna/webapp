@@ -2,7 +2,10 @@
 //avoid calling them repetitively
 
 var _DOM_ElEMENTS = {
-    singleElements: {},
+    singleElements: {
+        saveButtonOne : document.body.querySelector(".first button"),
+        saveButtonTwo : document.body.querySelector(".second button")
+    },
    
     elementArrays: {
         //an array of all the ".new-link" field couples
@@ -15,15 +18,19 @@ var _DOM_ElEMENTS = {
         formButtonsArray: myUTILS.returnElementsArray(".custom-links button"),
 
         //an array out of all the "settings" icons
-
         settingsArray : myUTILS.returnElementsArray(".settings"),
 
         //an array out of all the "custom-links" tabs
-
         customLinksArray :  myUTILS.returnElementsArray(".custom"),
 
         //an array of all the form input elements
+        formInputFieldsArray : myUTILS.returnElementsArray("input"),
+        
+        //an array of all the tabs
+        tabsArray : myUTILS.returnElementsArray(".tabs li"),
 
-        formInputFieldsArray : myUTILS.returnElementsArray("input")
+        //an array of all the main content divs
+        contentDivsArray : myUTILS.returnElementsArray(".content-div")
+
     }
 }
