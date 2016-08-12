@@ -12,7 +12,18 @@ var _DOM_ElEMENTS = {
         customLinksArray: myUTILS.returnElementsArray(".custom-links"),
 
         //an array out of all the "custom-links" form save buttons
-        formButtonsArray: myUTILS.returnElementsArray(".custom-links button")
+        formButtonsArray: myUTILS.returnElementsArray(".custom-links button"),
 
+        //an array out of all the "settings" icons
+
+        settingsArray : myUTILS.returnElementsArray(".settings"),
+
+        //an array out of all the "custom-links" tabs
+
+        customLinksArray :  myUTILS.returnElementsArray(".custom"),
+
+        //an array of all the form input elements
+
+        formInputFieldsArray : myUTILS.returnElementsArray("input")
     }
 }
