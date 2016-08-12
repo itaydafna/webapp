@@ -4,12 +4,10 @@
 
 (function () {
 
-// creating a node-list of all the ".new-link" field couples
-    var newLinkNodeList = document.querySelectorAll(".new-link"),
-
 // creating an array of all the ".new-link" field couples
-    newLinkArray = Array.prototype.slice.call(newLinkNodeList);
+//     newLinkArray = Array.prototype.slice.call(newLinkNodeList);
 
+    var newLinkArray = myUTILS.returnElementsArray(".new-link");
 
 
 //creating an array of couple fields - each couple is a sub-array in the main array
