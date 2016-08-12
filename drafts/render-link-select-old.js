@@ -4,23 +4,16 @@
 //-------------------------------------------------------------------------------
 
 (function () {
-
-        //retrieving existing local storage data
-        var siteStorage = JSON.parse(localStorage.getItem("form-data")),
+    var siteStorage = localStorage,
         //creating 2 arrays of pairs of names and URLs for updating the "select" form  - one array for each tab
-            customOneArray = [],
-            customTwoArray = [];
-
-    //this function should update the custom arrays on page load and on form submission
-    function updateStorageArrays() {
-    //checking if there is existing previous form data in local storage
-        if (!localStorage.getItem("form-data")) {
-            return;
-        }
-        //clearing the custom array so they can be "refilled" with what is in the local storage
-        siteStorage = JSON.parse(localStorage.getItem("form-data"));
-        customOneArray = [];
+        customOneArray = [],
         customTwoArray = [];
+        //this function should update the custom arrays on page load and on form submission
+
+    function updateStorageArrays () {
+        //clearing the custom array so they can be "refilled" with what is in the local storage
+            customOneArray = [];
+            customTwoArray = [];
         for (var i = 1; i <= 6; i++) {
             if (siteStorage["name" + i] !== "" && siteStorage["name" + i] !== undefined) {
                 var pair = [];
@@ -35,14 +28,15 @@
         }
     }
 
+
+
 //this function renders an "open on new tab" icon with the selected url
     //once a site has been selected
 
-    function addNewTab(div, url) {
+    function addNewTab(div,url){
         //delete previous "new-tab" icon if it already exists
-        if (div.querySelector(".new-tab")) {
-            div.querySelector(".new-tab").parentNode.removeChild(div.querySelector(".new-tab"))
-        }
+        if(div.querySelector(".new-tab")){
+            div.querySelector(".new-tab").parentNode.removeChild(div.querySelector(".new-tab"))}
 
         //create a new "new-tab" element
         var newTab = document.createElement("a");
@@ -59,13 +53,13 @@
     //!!!REPEATED CODE - NEED TO MAKE GLOBAL
     //function which creates a "select" element out of a given "pairs" array of names and URLs
 
-    function createSelect(array) {
-        if (array.length <= 0) {
+    function createSelect(array){
+        if (array.length<=0){
             return
-        } else {
-            var select = document.createElement("select"),
+        }else
+        {var select = document.createElement("select"),
                 selectInnerHTML = "";
-            select.className = "select-site";
+                select.className = "select-site";
             array.forEach(function (pair) {
                 selectInnerHTML += "<option value=" + pair[1] + ">" + pair[0] + "</option>";
             })
@@ -78,16 +72,16 @@
                 // iframe based on the selected value
                 function (event) {
                     //finding closest <iframe> parent
-                    var closestIframeParent = closestParent(this, "iframe");
+                    var closestIframeParent = closestParent(this,"iframe");
                     var url = event.target.value;
 
                     closestIframeParent.querySelector("iframe").src = url;
 
                     //finding closest ".settings-icons" parent
-                    var closestIframeParent = closestParent(this, ".settings-icons");
+                    var closestIframeParent = closestParent(this,".settings-icons");
 
                     //call addNewTab with "this" as the div and url as the url
-                    addNewTab(closestIframeParent, url);
+                    addNewTab(closestIframeParent,url);
                 })
 
             return select;
@@ -99,26 +93,26 @@
     // array)
     //takes in an array as a parameter - the array for the relevant tab is passed upon rendering
 
-    function renderSelectInput(array) {
-        if (array.length > 0) {
+    function renderSelectInput(array){
+        if(array.length > 0){
             var firstCustomHeader = document.body.querySelector(".first .section-header"),
                 secondCutomHeader = document.body.querySelector(".second .section-header");
 
-            if (array === customOneArray) {
-                //deleting previous select field (in case it exists)
-                if (firstCustomHeader.querySelector(".select-site")) {
-                    firstCustomHeader.removeChild(firstCustomHeader.querySelector(".select-site"));
+            if (array === customOneArray){
+            //deleting previous select field (in case it exists)
+                if(firstCustomHeader.querySelector(".select-site")){
+                   firstCustomHeader.removeChild(firstCustomHeader.querySelector(".select-site"));
                 }
-                //and appending the updated "select" field instead
+            //and appending the updated "select" field instead
                 firstCustomHeader.appendChild(createSelect(array));
-            } else if
-            (array === customTwoArray) {
-                //deleting previous select field (in case it exists)
-                if (secondCutomHeader.querySelector(".select-site")) {
+        } else if
+            (array === customTwoArray){
+            //deleting previous select field (in case it exists)
+                if(secondCutomHeader.querySelector(".select-site")){
                     secondCutomHeader.removeChild(secondCutomHeader.querySelector(".select-site"));
                 }
 
-                //and appending the updated "select" field instead
+            //and appending the updated "select" field instead
                 secondCutomHeader.appendChild(createSelect(array));
             }
         }
@@ -138,15 +132,16 @@
     }
 
 
+
 //!!!REPEATED CODE - NEED TO MAKE GLOBAL
 // a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
 //restrictions)
 // a function which return a boolean which checks if all the input fields in the form are valid (no "required or "url"
 //restrictions)
 
-    function formValid() {
+    function formValid(){
 
-        var submitButton = this,
+        var submitButton  = this,
         //finding the first parent of the clicked element which is a parent of the "custom-links" form
             closestFormParent = closestParent(submitButton, ".custom-links"),
 
@@ -160,7 +155,7 @@
             formInputFieldsArray = Array.prototype.slice.call(formInputFields);
 
         var allFieldsValid = true;
-        for (var i = 0; i < formInputFieldsArray.length; i++) {
+        for(var i = 0; i<formInputFieldsArray.length; i++) {
             if (!formInputFieldsArray[i].validity.valid) {
                 allFieldsValid = false;
             }
@@ -170,44 +165,44 @@
     }
 
 
+
     //adding "click" event listeners to each form  button to render the "select" input
 
     var btnOne = document.body.querySelector(".first button"),
         btnTwo = document.body.querySelector(".second button");
 
 
-    btnOne.addEventListener("click", function () {
-        //setting the timeout here is a trick I found which allows the form to update the validity status of all the
-        // input fields before it toggles the form
-        setTimeout(function () {
-            if (formValid.call(this)) {
-                //update the custom arrays based on what is on the local storage
-                updateStorageArrays();
+
+        btnOne.addEventListener("click",function(){
+            //setting the timeout here is a trick I found which allows the form to update the validity status of all the
+            // input fields before it toggles the form
+            setTimeout(function () {
+                if(formValid.call(this)) {
+                    //update the custom arrays based on what is on the local storage
+                    updateStorageArrays();
 
 
-                renderSelectInput(customOneArray);
-            }
-        }.bind(this), 50)
-    });
+                    renderSelectInput(customOneArray);
+                }}.bind(this),50)
+        });
 
-    btnTwo.addEventListener("click", function () {
-        //setting the timeout here is a trick I found which allows the form to update the validity status of all the
-        // input fields before it toggles the form
-        setTimeout(function () {
-            if (formValid.call(this)) {
-                //update the custom arrays based on what is on the local storage
-                updateStorageArrays();
-                renderSelectInput(customTwoArray);
-            }
-        }.bind(this), 50)
-    });
+        btnTwo.addEventListener("click",function(){
+            //setting the timeout here is a trick I found which allows the form to update the validity status of all the
+            // input fields before it toggles the form
+            setTimeout(function () {
+                if(formValid.call(this)) {
+                    //update the custom arrays based on what is on the local storage
+                    updateStorageArrays();
+                    renderSelectInput(customTwoArray);
+                }}.bind(this),50)
+        });
 
     //adding "on-load" event listeners to each form to render the "select" input to both tabs
 
-    //update the custom arrays based on what is on the local storage
-    updateStorageArrays();
-    renderSelectInput(customOneArray);
-    renderSelectInput(customTwoArray);
+            //update the custom arrays based on what is on the local storage
+            updateStorageArrays();
+            renderSelectInput(customOneArray);
+            renderSelectInput(customTwoArray);
 
 
 }())
