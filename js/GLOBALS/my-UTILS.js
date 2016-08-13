@@ -41,13 +41,34 @@ var myUTILS = function () {
         return allFieldsValid;
     }
 
+//this function renders an "open on new tab" icon with the selected url
+//once a site has been selected
+
+    function addNewTab(div,url){
+        //delete previous "new-tab" icon if it already exists
+        if(div.querySelector(".new-tab")){
+            div.querySelector(".new-tab").parentNode.removeChild(div.querySelector(".new-tab"))}
+
+        //create a new "new-tab" element
+        var newTab = document.createElement("a");
+        newTab.className = "new-tab";
+        newTab.target = "_blank";
+        newTab.href = url;
+        newTab.innerHTML = '<img src="img/icons/expand.png" alt="open site in new tab">'
+
+        //and append it to the "settings-icons" div on header
+        div.querySelector(".settings-icons").appendChild(newTab);
+    }
+
+
 
 
 
     return {
         returnElementsArray: returnElementsArray,
         closestParent : closestParent,
-        formValid : formValid
+        formValid : formValid,
+        addNewTab :addNewTab
     }
 
 

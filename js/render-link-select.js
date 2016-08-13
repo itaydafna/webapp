@@ -35,29 +35,7 @@
         }
     }
 
-//this function renders an "open on new tab" icon with the selected url
-//once a site has been selected
-
-    function addNewTab(div, url) {
-        //delete previous "new-tab" icon if it already exists
-        if (div.querySelector(".new-tab")) {
-            div.querySelector(".new-tab").parentNode.removeChild(div.querySelector(".new-tab"))
-        }
-
-        //create a new "new-tab" element
-        var newTab = document.createElement("a");
-        newTab.className = "new-tab";
-        newTab.target = "_blank";
-        newTab.href = url;
-        newTab.innerHTML = '<img src="img/icons/expand.png" alt="open site in new tab">'
-
-        //and append it to the "settings-icons" div on header
-        div.querySelector(".settings-icons").appendChild(newTab);
-    }
-
-
-    //!!!REPEATED CODE - NEED TO MAKE GLOBAL
-    //function which creates a "select" element out of a given "pairs" array of names and URLs
+//function which creates a "select" element out of a given "pairs" array of names and URLs
 
     function createSelect(array) {
         if (array.length <= 0) {
@@ -87,7 +65,7 @@
                     var closestIframeParent = myUTILS.closestParent(this, ".settings-icons");
 
                     //call addNewTab with "this" as the div and url as the url
-                    addNewTab(closestIframeParent, url);
+                    myUTILS.addNewTab(closestIframeParent, url);
                 })
 
             return select;
