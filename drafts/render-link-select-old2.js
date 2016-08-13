@@ -6,20 +6,20 @@
 (function () {
 
     //retrieving existing local storage data
-    var siteStorage = JSON.parse(localStorage.getItem("form-data")),
-    //creating 2 arrays of pairs of names and URLs for updating the "select" form  - one array for each tab
-        customOneArray = [],
-        customTwoArray = [];
-
+        var siteStorage = JSON.parse(localStorage.getItem("form-data")),
+        //creating 2 arrays of pairs of names and URLs for updating the "select" form  - one array for each tab
+            customOneArray = [],
+            customTwoArray = [];
+    
     //this function should update the custom arrays on page load and on form submission
     function updateStorageArrays() {
-
-        //checking if there is existing previous form data in local storage
+    
+    //checking if there is existing previous form data in local storage
         if (!localStorage.getItem("form-data")) {
             return;
         }
-
-        //clearing the custom array so they can be "refilled" with what is in the local storage
+        
+    //clearing the custom array so they can be "refilled" with what is in the local storage
         siteStorage = JSON.parse(localStorage.getItem("form-data"));
         customOneArray = [];
         customTwoArray = [];
@@ -36,22 +36,8 @@
             }
         }
     }
+    
 
-// function which updates the current tab's iframe based on the URL of the selected option on the select input
-
-    function updateIframe(selectedOption) {
-        //finding closest <iframe> parent
-        var closestIframeParent = myUTILS.closestParent(selectedOption, "iframe");
-        var url = selectedOption.value;
-
-        closestIframeParent.querySelector("iframe").src = url;
-
-        //finding closest ".settings-icons" parent
-        var closestIframeParent = myUTILS.closestParent(selectedOption, ".settings-icons");
-
-        //call addNewTab with "this" as the div and url as the url
-        myUTILS.addNewTab(closestIframeParent, url);
-    }
 
 
 //function which creates a "select" element out of a given "pairs" array of names and URLs
@@ -74,9 +60,18 @@
                 // function which listens to a "select" (change) event on the tab and then updates its
                 // iframe based on the selected value
                 function (event) {
-                    updateIframe(event.target)
-                }
-            )
+                    //finding closest <iframe> parent
+                    var closestIframeParent = myUTILS.closestParent(this, "iframe");
+                    var url = event.target.value;
+
+                    closestIframeParent.querySelector("iframe").src = url;
+
+                    //finding closest ".settings-icons" parent
+                    var closestIframeParent = myUTILS.closestParent(this, ".settings-icons");
+
+                    //call addNewTab with "this" as the div and url as the url
+                    myUTILS.addNewTab(closestIframeParent, url);
+                })
 
             return select;
         }
@@ -97,14 +92,8 @@
                 if (firstCustomHeader.querySelector(".select-site")) {
                     firstCustomHeader.removeChild(firstCustomHeader.querySelector(".select-site"));
                 }
-                //appending the updated "select" field instead
-                var newSelectInput1 = createSelect(array);
-                firstCustomHeader.appendChild(newSelectInput1);
-
-                //and rendering the default selected option to the iFrame
-                updateIframe(newSelectInput1)
-
-
+                //and appending the updated "select" field instead
+                firstCustomHeader.appendChild(createSelect(array));
             } else if
             (array === customTwoArray) {
                 //deleting previous select field (in case it exists)
@@ -112,16 +101,12 @@
                     secondCutomHeader.removeChild(secondCutomHeader.querySelector(".select-site"));
                 }
 
-                //appending the updated "select" field instead
-                var newSelectInput2 = createSelect(array);
-                secondCutomHeader.appendChild(newSelectInput2);
-
-                //and rendering the default selected option to the iFrame
-
-                updateIframe(newSelectInput2);
+                //and appending the updated "select" field instead
+                secondCutomHeader.appendChild(createSelect(array));
             }
         }
     }
+    
 
 
     //adding "click" event listeners to each form  button to render the "select" input
