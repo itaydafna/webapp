@@ -4,7 +4,9 @@
 var _DOM_ElEMENTS = {
     singleElements: {
         saveButtonOne : document.body.querySelector(".first button"),
-        saveButtonTwo : document.body.querySelector(".second button")
+        saveButtonTwo : document.body.querySelector(".second button"),
+        firstCustomHeader : document.body.querySelector(".first .section-header"),
+        secondCustomHeader : document.body.querySelector(".second .section-header")
     },
    
     elementArrays: {

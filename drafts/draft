@@ -1,0 +1,54 @@
+//function which renders the select input to the content-tab header (if local storage returned data to the "pairs"
+// array)
+
+
+function renderSelectInput(array,header){
+    if (array.length > 0){
+        if (header.querySelector(".select-site")) {
+                header.removeChild(header.querySelector(".select-site"));
+            }
+            //appending the updated "select" field instead
+            var newSelectInput = createSelect(array);
+            firstCustomHeader.appendChild(newSelectInput);
+
+            //and rendering the default selected option to the iFrame
+            updateIframe(newSelectInput)
+        
+   }
+}
+
+// function renderSelectInput(array) {
+//     if (array.length > 0) {
+//         var firstCustomHeader = document.body.querySelector(".first .section-header"),
+//             secondCustomHeader = document.body.querySelector(".second .section-header");
+//
+//         if (array === customOneArray) {
+//             //deleting previous select field (in case it exists)
+//             if (firstCustomHeader.querySelector(".select-site")) {
+//                 firstCustomHeader.removeChild(firstCustomHeader.querySelector(".select-site"));
+//             }
+//             //appending the updated "select" field instead
+//             var newSelectInput1 = createSelect(array);
+//             firstCustomHeader.appendChild(newSelectInput1);
+//
+//             //and rendering the default selected option to the iFrame
+//             updateIframe(newSelectInput1)
+//
+//
+//         } else if
+//         (array === customTwoArray) {
+//             //deleting previous select field (in case it exists)
+//             if (secondCustomHeader.querySelector(".select-site")) {
+//                 secondCustomHeader.removeChild(secondCustomHeader.querySelector(".select-site"));
+//             }
+//
+//             //appending the updated "select" field instead
+//             var newSelectInput2 = createSelect(array);
+//             secondCustomHeader.appendChild(newSelectInput2);
+//
+//             //and rendering the default selected option to the iFrame
+//
+//             updateIframe(newSelectInput2);
+//         }
+//     }
+// }

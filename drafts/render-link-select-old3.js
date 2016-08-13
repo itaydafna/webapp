@@ -85,23 +85,46 @@
 
     //function which renders the select input to the content-tab header (if local storage returned data to the "pairs"
     // array)
+    //takes in an array as a parameter - the array for the relevant tab is passed upon rendering
 
-    function renderSelectInput(array,header){
-        if (array.length > 0){
-            if (header.querySelector(".select-site")) {
-                header.removeChild(header.querySelector(".select-site"));
+    function renderSelectInput(array) {
+        if (array.length > 0) {
+            var firstCustomHeader = document.body.querySelector(".first .section-header"),
+                secondCutomHeader = document.body.querySelector(".second .section-header");
+
+            if (array === customOneArray) {
+                //deleting previous select field (in case it exists)
+                if (firstCustomHeader.querySelector(".select-site")) {
+                    firstCustomHeader.removeChild(firstCustomHeader.querySelector(".select-site"));
+                }
+                //appending the updated "select" field instead
+                var newSelectInput1 = createSelect(array);
+                firstCustomHeader.appendChild(newSelectInput1);
+
+                //and rendering the default selected option to the iFrame
+                updateIframe(newSelectInput1)
+
+
+            } else if
+            (array === customTwoArray) {
+                //deleting previous select field (in case it exists)
+                if (secondCutomHeader.querySelector(".select-site")) {
+                    secondCutomHeader.removeChild(secondCutomHeader.querySelector(".select-site"));
+                }
+
+                //appending the updated "select" field instead
+                var newSelectInput2 = createSelect(array);
+                secondCutomHeader.appendChild(newSelectInput2);
+
+                //and rendering the default selected option to the iFrame
+
+                updateIframe(newSelectInput2);
             }
-            //appending the updated "select" field instead
-            var newSelectInput = createSelect(array);
-            header.appendChild(newSelectInput);
-
-            //and rendering the default selected option to the iFrame
-            updateIframe(newSelectInput)
         }
     }
 
 
-    //adding "click" event listeners to each form button to render the "select" input
+    //adding "click" event listeners to each form  button to render the "select" input
 
 
     _DOM_ElEMENTS.singleElements.saveButtonOne.addEventListener("click", function () {
@@ -112,7 +135,8 @@
                 //update the custom arrays based on what is on the local storage
                 updateStorageArrays();
 
-                renderSelectInput(customOneArray, _DOM_ElEMENTS.singleElements.firstCustomHeader);
+
+                renderSelectInput(customOneArray);
             }
         }.bind(this), 50)
     });
@@ -124,7 +148,7 @@
             if (myUTILS.formValid.call(this)) {
                 //update the custom arrays based on what is on the local storage
                 updateStorageArrays();
-                renderSelectInput(customTwoArray,_DOM_ElEMENTS.singleElements.secondCustomHeader);
+                renderSelectInput(customTwoArray);
             }
         }.bind(this), 50)
     });
@@ -133,8 +157,8 @@
 
     //update the custom arrays based on what is on the local storage
     updateStorageArrays();
-    renderSelectInput(customOneArray, _DOM_ElEMENTS.singleElements.firstCustomHeader);
-    renderSelectInput(customTwoArray,_DOM_ElEMENTS.singleElements.secondCustomHeader);
+    renderSelectInput(customOneArray);
+    renderSelectInput(customTwoArray);
 
 
 }())
